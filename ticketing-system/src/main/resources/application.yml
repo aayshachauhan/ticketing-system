@@ -1,0 +1,77 @@
+spring:
+  application:
+    name: ticket-system
+  profiles.active: development
+
+---
+spring:
+  config:
+    activate:
+      on-profile:
+        - development
+zshop.db:
+  url: jdbc:mysql://15.207.200.97:3306/zshop?sessionVariables=sql_mode=ALLOW_INVALID_DATES&autoReconnect=true&zeroDateTimeBehavior=convertToNull&useUnicode=true&connectionCollation=utf8_general_ci&characterSetResults=utf8&characterEncoding=utf8&autoReconnect=true&useSSL=false
+  username: devuser
+  password: devuser@1234
+  driverClassName: Class.forName("com.mysql.cj.jdbc.Driver");
+
+  
+server:
+  port: 4101
+  servlet:
+    context-path: "/${spring.application.name}"
+ 
+---
+spring:
+  config:
+    activate:
+      on-profile:
+        - uat
+zshop.db:
+  url: jdbc:mysql://15.207.200.97:3306/zshop?sessionVariables=sql_mode=ALLOW_INVALID_DATES&autoReconnect=true&zeroDateTimeBehavior=convertToNull&useUnicode=true&connectionCollation=utf8_general_ci&characterSetResults=utf8&characterEncoding=utf8&autoReconnect=true&useSSL=false
+  username: devuser
+  password: devuser@1234
+  driverClassName: com.mysql.jdbc.Driver
+  
+  
+server:
+  port: 4101
+  servlet:
+    context-path: "/${spring.application.name}"
+---
+spring:
+  config:
+    activate:
+      on-profile:
+        - production
+  
+zshop.db:
+  url: jdbc:mysql://masterdb.prod.ezmall.com:3306/zshop?autoReconnect=true&zeroDateTimeBehavior=convertToNull&useUnicode=true&connectionCollation=utf8_general_ci&characterSetResults=utf8&characterEncoding=utf8
+  username: liveuser
+  password: liveuser@1234
+  driverClassName: com.mysql.jdbc.Driver
+              
+  
+server:
+  port: 4101
+  servlet:
+    context-path: "/${spring.application.name}"
+---
+spring:
+  config:
+    activate:
+      on-profile:
+        - docker
+        
+zshop.db:
+  url: jdbc:mysql://masterdb.prod.ezmall.com:3306/zshop?autoReconnect=true&zeroDateTimeBehavior=convertToNull&useUnicode=true&connectionCollation=utf8_general_ci&characterSetResults=utf8&characterEncoding=utf8
+  username: liveuser
+  password: liveuser@1234
+  driverClassName: com.mysql.jdbc.Driver
+          
+  
+server:
+  port: 4101
+  servlet:
+    context-path: "/${spring.application.name}"
+
