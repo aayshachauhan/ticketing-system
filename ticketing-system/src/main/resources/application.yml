@@ -10,9 +10,9 @@ spring:
       on-profile:
         - development
 zshop.db:
-  url: jdbc:mysql://15.207.200.97:3306/zshop?sessionVariables=sql_mode=ALLOW_INVALID_DATES&autoReconnect=true&zeroDateTimeBehavior=convertToNull&useUnicode=true&connectionCollation=utf8_general_ci&characterSetResults=utf8&characterEncoding=utf8&autoReconnect=true&useSSL=false
-  username: devuser
-  password: devuser@1234
+  url: jdbc:mysql://  url : #please enter db url
+  username: root
+  password: password
   driverClassName: Class.forName("com.mysql.cj.jdbc.Driver");
 
   
@@ -28,9 +28,9 @@ spring:
       on-profile:
         - uat
 zshop.db:
-  url: jdbc:mysql://15.207.200.97:3306/zshop?sessionVariables=sql_mode=ALLOW_INVALID_DATES&autoReconnect=true&zeroDateTimeBehavior=convertToNull&useUnicode=true&connectionCollation=utf8_general_ci&characterSetResults=utf8&characterEncoding=utf8&autoReconnect=true&useSSL=false
-  username: devuser
-  password: devuser@1234
+  url: jdbc:mysql://  url : #please enter db url
+  username: root
+  password: password
   driverClassName: com.mysql.jdbc.Driver
   
   
@@ -46,9 +46,9 @@ spring:
         - production
   
 zshop.db:
-  url: jdbc:mysql://masterdb.prod.ezmall.com:3306/zshop?autoReconnect=true&zeroDateTimeBehavior=convertToNull&useUnicode=true&connectionCollation=utf8_general_ci&characterSetResults=utf8&characterEncoding=utf8
-  username: liveuser
-  password: liveuser@1234
+  url: jdbc:mysql://#please enter db url
+  username: root
+  password: password
   driverClassName: com.mysql.jdbc.Driver
               
   
@@ -64,9 +64,9 @@ spring:
         - docker
         
 zshop.db:
-  url: jdbc:mysql://masterdb.prod.ezmall.com:3306/zshop?autoReconnect=true&zeroDateTimeBehavior=convertToNull&useUnicode=true&connectionCollation=utf8_general_ci&characterSetResults=utf8&characterEncoding=utf8
-  username: liveuser
-  password: liveuser@1234
+  url : #please enter db url
+  username: root
+  password: password
   driverClassName: com.mysql.jdbc.Driver
           
   
@@ -75,3 +75,11 @@ server:
   servlet:
     context-path: "/${spring.application.name}"
 
+--------------------------
+spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver
+spring.datasource.username=root
+spring.datasource.password=password
+spring.datasource.url= jdbc:mysql://localhost:3306/myDb
+spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.MySQL5Dialect
+spring.jpa.show-sql=true
+spring.jpa.hibernate.ddl-auto=update
